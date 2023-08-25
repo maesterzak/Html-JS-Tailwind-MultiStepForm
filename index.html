@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+              }
+            }
+          }
+        }
+      </script>
+      <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <title>Document</title>
+    <script src="./main.js"></script>
+    <link href="./style.css" />
+</head>
+<body class="h-[100vh] w-[100vw] flex justify-center items-center bg-[#D3D3D3]">
+    <form onsubmit="submitHandler(event)" class="rounded-xl h-[90%] md:h-[75%] w-[95%] p-5 md:w-[80%] overflow-y-auto bg-[#FFFFFF] flex justify-center items-center">
+        <div   id="step1" class="w-[95%] md:w-[75%] transition-opacity duration-9000 ease-in-out opacity-100">
+            <h1 class="font-bold mb-5 text-center text-2xl">Personal Information</h1>
+            
+            <div class="flex flex-wrap -mx-3 mb-6">
+              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                  First Name
+                </label>
+                <input id="first_name" required name="first_name" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="Jane">
+                <p id="first_name_warning" class="text-red-500 text-xs italic hidden">Please fill out this field.</p>
+              </div>
+              <div class="w-full md:w-1/3 px-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                  Middle Name
+                </label>
+                <input id="middle_name" required name="middle_name" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe">
+                <p id="middle_name_warning" class="text-red-500 text-xs italic hidden">Please fill out this field.</p>
+              </div>
+              <div class="w-full md:w-1/3 px-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                  Last Name
+                </label>
+                <input id="last_name" required name="last_name" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Doe">
+                <p id="last_name_warning" class="text-red-500 text-xs italic hidden">Please fill out this field.</p>
+              </div>
+            </div>
+           
+            <div class="flex flex-wrap -mx-3 mb-2">
+              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
+                  City
+                </label>
+                <input id="city" required name="city" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-city" type="text" placeholder="Albuquerque">
+                <p id="city_warning" class="text-red-500 text-xs italic hidden">Please fill out this field.</p>
+              </div>
+              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                  Gender
+                </label>
+                <div class="relative">
+                  <select id="gender" required name="gender" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                    <option >Male</option>
+                    <option>Female</option>
+                    
+                  </select>
+                  <p id="gender_warning" class="text-red-500 text-xs italic hidden">Please fill out this field.</p>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+                  DATE OF BIRTH
+                </label>
+                <input id="dob" required name="date_of_birth"  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="date" >
+                <p id="dob_warning" class="text-red-500 text-xs italic hidden">Please fill out this field.</p>
+              </div>
+
+              <div class="mt-5 flex justify-center w-full gap-5">
+                <!-- <button onclick="toggleStep('backward', 1)" class="w-[100px] bg-[#1B79E5] rounded-xl text-[#fff]">Previous</button> -->
+
+                <button type="button" onclick="toggleStep('forward', 1)" class="w-[100px] h-8 bg-[#1B79E5] rounded-xl text-[#fff]">Next</button>
+                
+              </div>
+            </div>
+
+            <div class="flex w-full justify-center">
+              <p class="text-[red]" id="step1-warning"></p>
+
+            </div>
+        </div>
+
+          <div   id="step2" class="w-[95%] md:w-[75%] hidden  transition-opacity duration-5000  ease-in-out opacity-0">
+            <h1 class="font-bold mb-5 text-center text-2xl">Contact Information</h1>
+            <div class="flex flex-wrap -mx-3 mb-6">
+              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                  Email
+                </label>
+                <input id="email" required name="email" class="appearance-none block w-full bg-gray-200 text-gray-700  rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="email" placeholder="example@gmail.com">
+                <p id="email_warning" class="text-red-500 text-xs italic hidden">Please fill out this field.</p>
+              </div>
+              <div class="w-full md:w-1/2 px-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                  Phone Number
+                </label>
+                <input id="phone_number" required name="phone_number" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="+2348062257480">
+                <p id="phone_number_warning" class="text-red-500 text-xs italic hidden">Please fill out this field.</p>
+              </div>
+              <div class="w-full px-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                  Address
+                </label>
+                <input id="address" required name="address" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="21 street lagos">
+                <p id="address_warning" class="text-red-500 text-xs italic hidden">Please fill out this field.</p>
+              </div>
+            </div>
+           
+            <div class="flex flex-wrap -mx-3 mb-2">
+              
+              
+
+              <div class="mt-5 flex justify-center w-full gap-5">
+                <button type="button" onclick="toggleStep('backward', 2)" class="w-[100px] bg-[#1B79E5] rounded-xl text-[#fff]">Previous</button>
+
+                <button type="button" onclick="toggleStep('forward', 2)" class="w-[100px] h-8 bg-[#1B79E5] rounded-xl text-[#fff]">Next</button>
+                
+              </div>
+            </div>
+        </div>
+
+          <div  id="step3" class="w-[95%] md:w-[75%] hidden transition-opacity duration-9000 ease-in-out opacity-100">
+            <h1 class="font-bold mb-5 text-center text-2xl">Academic Information</h1>
+            <div class="flex flex-wrap -mx-3 mb-6">
+              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                  Student ID
+                </label>
+                <input id="student_id" required name="student_id" class="appearance-none block w-full bg-gray-200 text-gray-700  border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="210000">
+                <p id="student_id_warning" class="text-red-500 text-xs italic hidden">Please fill out this field.</p>
+              </div>
+              <div class="w-full md:w-1/2 px-3">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                  Major/Field of Study
+                </label>
+                <input id="major_field_study" required name="major_field_study" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="Engineering">
+                <p id="major_field_study_warning" class="text-red-500 text-xs italic hidden">Please fill out this field.</p>
+              </div>
+              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+                  Year of Enrollment
+                </label>
+                <input id="enrollment_year" required name="enrollment_year"  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="date" >
+                <p id="enrollment_year_warning" class="text-red-500 text-xs italic hidden">Please fill out this field.</p>
+              </div>
+              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+                  Expected Graduation Date 
+                </label>
+                <input id="expected_graduation_date" required name="expected_graduation_date"  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-zip" type="date" >
+                <p id="expected_graduation_date_warning" class="text-red-500 text-xs italic hidden">Please fill out this field.</p>
+              </div>
+
+              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                  GPA
+                </label>
+                <input id="gpa" required name="gpa" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="0.00">
+                <p id="gpa_warning" class="text-red-500 text-xs italic hidden">Please fill out this field.</p>
+              </div>
+            </div>
+           
+            <div class="flex flex-wrap -mx-3 mb-2">
+              
+              
+
+                <div class="mt-5 flex justify-center w-full gap-5">
+                    <button type="button" onclick="toggleStep('backward', 3)" class="w-[100px] bg-[#1B79E5] rounded-xl text-[#fff]">Previous</button>
+    
+                    <button type="button" onclick="toggleStep('forward', 3)" class="w-[100px] h-8 bg-[#1B79E5] rounded-xl text-[#fff]">Next</button>
+                    
+                  </div>
+            </div>
+        </div>
+
+          <div id="step4" class=" hidden w-[95%] md:w-[75%] transition-opacity duration-9000 ease-in-out opacity-100">
+            <h1 class="font-bold mb-5 text-center text-2xl">Additional Comments</h1>
+            <div class="flex flex-wrap  mb-6">
+              
+              <div class="w-full  ">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                 Comment
+                </label>
+                <textarea  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 h-[300px]" id="grid-last-name" type="text" placeholder="Enter Comment Here" name="comment"></textarea>
+              </div>
+              
+              
+
+              
+            </div>
+           
+            <div class="flex flex-wrap mb-2">
+              
+              
+
+              <div class="mt-5 flex justify-center w-full gap-5">
+                <button type="button" onclick="toggleStep('backward', 4)" class="w-[100px] bg-[#1B79E5] rounded-xl text-[#fff]">Previous</button>
+
+                <button type="button" onclick="toggleStep('forward', 4)" class="w-[100px] h-8 bg-[#1B79E5] rounded-xl text-[#fff]">Next</button>
+                
+              </div>
+            </div>
+        </div>
+
+
+        <div id="step5" class=" hidden w-[95%] md:w-[75%] transition-opacity duration-9000 ease-in-out opacity-100">
+          <button type="button" onclick="toggleStep('backward', 4)" class="text-blue-400  outline-none bg-none ">Previous</button>
+          <h1 class="font-bold mb-5 text-center text-2xl">Form Data</h1>
+          <div id="formData" class="grid flex-wrap  mb-3 gap-2 overflow-y-auto">
+            
+
+            
+          </div>
+         
+          <div class="flex flex-wrap mb-2">
+            
+            
+
+            <div class="mt-5 flex justify-center w-full gap-5">
+              <button type="submit" class=" w-full h-10 bg-blue-400 rounded-xl text-white text-lg">Submit</button>
+
+              
+              
+            </div>
+          </div>
+      </div>
+
+
+        </form>
+    <div>
+
+    </div>
+    
+</body>
+</html>
